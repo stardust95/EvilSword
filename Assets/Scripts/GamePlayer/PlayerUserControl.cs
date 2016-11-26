@@ -13,12 +13,16 @@ public class PlayerUserControl : MonoBehaviour {
 
 	private KeyCode[ ] AttackKeys = {
 			KeyCode.J,				// For Jab
-			KeyCode.K				// For Kick
+			KeyCode.K,				// For Kick
+			//KeyCode.U,				// For Rise
+			//KeyCode.L,				// For SpinKick
 		};
 
 	private string[ ] Attacks = {
 			"Jab",
-			"Kick"
+			"Kick",
+			"Rise",
+			"SpinKick"
 		};
 
 	private void Start( ) {
@@ -51,10 +55,12 @@ public class PlayerUserControl : MonoBehaviour {
 		bool crouch = Input.GetKey(KeyCode.C);
 
 		for ( int i = 0; i < AttackKeys.Length; ++i ) {
-			if ( Input.GetKey(AttackKeys[i]) ) {
-
+			if ( Input.GetKeyDown(AttackKeys[i]) ) {
+				m_Character.Attack(Attacks[i]);
+				Input.ResetInputAxes( );
 			}
 		}
+
 
 		// calculate move direction to pass to character
 		if ( m_Cam != null ) {

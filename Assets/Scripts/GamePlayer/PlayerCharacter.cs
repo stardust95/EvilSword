@@ -36,7 +36,7 @@ public class PlayerCharacter : MonoBehaviour {
 	Vector3 m_CapsuleCenter;
 	CapsuleCollider m_Capsule;
 	bool m_Crouching;
-	bool m_Fighting;
+	
 
 
 	void Start( ) {
@@ -50,6 +50,9 @@ public class PlayerCharacter : MonoBehaviour {
 		m_OrigGroundCheckDistance = m_GroundCheckDistance;
 	}
 
+	public void Attack(string attack ) {
+		UpdateAnimator(new Vector3( ), attack);
+	}
 
 	public void Move( Vector3 move, bool crouch, bool jump ) {
 
@@ -78,6 +81,8 @@ public class PlayerCharacter : MonoBehaviour {
 		// send input and other state parameters to the animator
 		UpdateAnimator(move);
 	}
+
+
 
 
 	void ScaleCapsuleForCrouching( bool crouch ) {
@@ -112,7 +117,8 @@ public class PlayerCharacter : MonoBehaviour {
 	}
 
 
-	void UpdateAnimator( Vector3 move, string attack = null ) {
+	
+	void UpdateAnimator( Vector3 move, string attack = null) {
 		// update the animator parameters
 		m_Animator.SetFloat("Forward", m_ForwardAmount, 0.1f, Time.deltaTime);
 		m_Animator.SetFloat("Turn", m_TurnAmount, 0.1f, Time.deltaTime);
@@ -120,6 +126,10 @@ public class PlayerCharacter : MonoBehaviour {
 		m_Animator.SetBool("OnGround", m_IsGrounded);
 
 		//m_Animator.SetBool("Fighting", m_Fighting);
+
+		if( attack != null ) {
+			m_Animator.SetBool(attack, true);
+		}
 
 		if ( !m_IsGrounded ) {
 			m_Animator.SetFloat("Jump", m_Rigidbody.velocity.y);
