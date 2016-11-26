@@ -37,6 +37,8 @@
 
 以Effects文件夹为例:
 
+-- Effects
+
 ---- Materials 存放材质相关的文件(.mat)
 
 ---- Textures 存放贴图(.png)
