@@ -46,8 +46,8 @@ public class PlayerUserControl : MonoBehaviour {
 	// Fixed update is called in sync with physics
 	private void FixedUpdate( ) {
 		// read inputs
-		float h = CrossPlatformInputManager.GetAxis("Horizontal2");
-		float v = CrossPlatformInputManager.GetAxis("Vertical2");
+		float h = CrossPlatformInputManager.GetAxis("Horizontal");
+		float v = CrossPlatformInputManager.GetAxis("Vertical");
 		bool crouch = Input.GetKey(KeyCode.C);
 
 		for ( int i = 0; i < AttackKeys.Length; ++i ) {

@@ -583,7 +583,7 @@ ModelImporter:
     4300050: uwagi_BK
     4300052: shirts_sode_BK
     4300054: cheek
-    7400000: JUMP00
+    7400000: Fall
     7400002: Jump_Locomotion
     9500000: //RootNode
     13700000: button
@@ -613,11 +613,14 @@ ModelImporter:
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
-    resampleCurves: 1
+    resampleRotations: 1
     optimizeGameObjects: 0
     motionNodeName: 
     animationImportErrors: 
-    animationImportWarnings: 
+    animationImportWarnings: "\nClip 'Take 001' has import animation warnings that
+      might lower retargeting quality:\nNote: Activate translation DOF on avatar to
+      improve retargeting quality.\n\t'Character1_Spine' is inbetween humanoid transforms
+      and has rotation animation that will be discarded.\n"
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     animationCompression: 0
@@ -628,10 +631,10 @@ ModelImporter:
     extraExposedTransformPaths: []
     clipAnimations:
     - serializedVersion: 16
-      name: JUMP00
+      name: Fall
       takeName: Take 001
-      firstFrame: 1
-      lastFrame: 56
+      firstFrame: 30
+      lastFrame: 31
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
