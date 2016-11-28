@@ -5,7 +5,7 @@ using System.Collections;
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(CapsuleCollider))]
 [RequireComponent(typeof(Animator))]
-public class PlayerCharacter : MonoBehaviour {
+public class BaseCharacter : MonoBehaviour {
 	[SerializeField]
 	float m_MovingTurnSpeed = 360;
 	[SerializeField]
@@ -36,7 +36,7 @@ public class PlayerCharacter : MonoBehaviour {
 	Vector3 m_CapsuleCenter;
 	CapsuleCollider m_Capsule;
 	bool m_Crouching;
-	
+
 
 
 	void Start( ) {
@@ -50,7 +50,7 @@ public class PlayerCharacter : MonoBehaviour {
 		m_OrigGroundCheckDistance = m_GroundCheckDistance;
 	}
 
-	public void Attack(string attack ) {
+	public void Attack( string attack ) {
 		UpdateAnimator(new Vector3( ), attack);
 	}
 
@@ -117,15 +117,15 @@ public class PlayerCharacter : MonoBehaviour {
 	}
 
 
-	
-	void UpdateAnimator( Vector3 move, string attack = null) {
+
+	void UpdateAnimator( Vector3 move, string attack = null ) {
 		// update the animator parameters
 		m_Animator.SetFloat("Forward", m_ForwardAmount, 0.1f, Time.deltaTime);
 		m_Animator.SetFloat("Turn", m_TurnAmount, 0.1f, Time.deltaTime);
 		m_Animator.SetBool("Crouch", m_Crouching);
 		m_Animator.SetBool("OnGround", m_IsGrounded);
 
-		if( attack != null ) {
+		if ( attack != null ) {
 			m_Animator.SetBool(attack, true);
 		}
 
