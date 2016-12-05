@@ -14,15 +14,15 @@ public class PlayerUserControl : MonoBehaviour {
 	private KeyCode[ ] AttackKeys = {
 			KeyCode.J,				// For Jab
 			KeyCode.K,				// For Kick
-			//KeyCode.U,				// For Rise
-			//KeyCode.L,				// For SpinKick
+			KeyCode.U,				// For Rise
+			KeyCode.L,				// For Offence
 		};
 
 	private string[ ] Attacks = {
 			"Jab",
 			"Kick",
 			"Rise",
-			"SpinKick"
+			"Offence"
 		};
 
 	private void Start( ) {
