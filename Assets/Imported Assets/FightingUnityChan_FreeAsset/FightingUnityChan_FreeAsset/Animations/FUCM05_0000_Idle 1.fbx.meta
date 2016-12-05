@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 08d7da7b21b2acc4f9cab6ebd487367f
+guid: 400631af05f33ee4d92df2f06f06ffb2
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
@@ -360,10 +360,15 @@ ModelImporter:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
     resampleCurves: 1
-    optimizeGameObjects: 0
+    optimizeGameObjects: 1
     motionNodeName: 
     animationImportErrors: 
-    animationImportWarnings: 
+    animationImportWarnings: "\nInbetween bone default rotation found in this file
+      is different from the one found in the source avatar:\n\t'Character1_Spine'
+      : rotation error = 19.446724 deg\n\nClip 'Take 001' has import animation warnings
+      that might lower retargeting quality:\nNote: Activate translation DOF on avatar
+      to improve retargeting quality.\n\t'Character1_Spine' is inbetween humanoid
+      transforms and has rotation animation that will be discarded.\n"
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     animationCompression: 3
