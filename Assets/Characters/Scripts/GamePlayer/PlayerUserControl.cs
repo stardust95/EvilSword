@@ -11,14 +11,14 @@ public class PlayerUserControl : MonoBehaviour {
 	private Vector3 m_Move;
 	private bool m_Jump;                      // the world-relative desired move direction, calculated from the camForward and user input.
 
-	private KeyCode[ ] AttackKeys = {
+	private static KeyCode[ ] AttackKeys = {
 			KeyCode.J,				// For Jab
 			KeyCode.K,				// For Kick
 			KeyCode.U,				// For Rise
 			KeyCode.L,				// For Offence
 		};
 
-	private string[ ] Attacks = {
+	private static string[ ] Attacks = {
 			"Jab",
 			"Kick",
 			"Rise",
@@ -39,6 +39,10 @@ public class PlayerUserControl : MonoBehaviour {
 		m_Character = GetComponent<PlayerCharacter>( );
 	}
 
+
+	public static string[] getAttackStrings( ) {
+		return Attacks;
+	}
 
 	private void Update( ) {
 		if ( !m_Jump ) {
@@ -80,5 +84,6 @@ public class PlayerUserControl : MonoBehaviour {
 		// [ This class could ONLY invoke this function to control the character
 		m_Character.Move(m_Move, crouch, m_Jump);
 		m_Jump = false;
+		//Debug.Log(m_Character.isAttacking( ));
 	}
 }
