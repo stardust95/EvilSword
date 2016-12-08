@@ -28,10 +28,10 @@ public class PlayerCharacter : BaseCharacter {
 
 	PlayerAttibute m_attribute;
 
-	private bool m_isAttacking = false;
-	public bool isAttacking {
-		get { return m_isAttacking; }
-	}
+	//private bool m_isAttacking = false;
+	//public bool isAttacking {
+	//	get { return m_isAttacking; }
+	//}
 
 	private List<GameObject> m_allEnemies = new List<GameObject>( );
 	public List<GameObject> allEnemies {
@@ -44,23 +44,49 @@ public class PlayerCharacter : BaseCharacter {
 
 	}
 
-
-	public void ChangeAttackState(int state ) {
-		if ( state > 0 )
-			m_isAttacking = true;
-		else
-			m_isAttacking = false;
-	}
+	//public void ChangeAttackState(int state ) {
+	//	if ( state > 0 )
+	//		m_isAttacking = true;
+	//	else
+	//		m_isAttacking = false;
+	//}
 	
 	public void Attack(string attack ) {
-		UpdateAnimator(new Vector3( ), attack);
+		//UpdateAnimator(new Vector3( ), attack);
+		CalcAttackEnemies( );
 	}
 
-	protected void UpdateAnimator( Vector3 move, string attack ) {
+	protected void CalcAttackEnemies( ) {
+		foreach ( GameObject enemy in allEnemies ) {
+			EnemyCharacter e = enemy.GetComponent<EnemyCharacter>( );
 
-		if ( attack != null ) {
-			m_Animator.SetBool(attack, true);
+			float distance = Vector3.Distance(e.transform.position, transform.position);
+
+			Vector3 dir = ( e.transform.position - transform.position ).normalized;
+
+			float direction = Vector3.Dot(transform.forward, dir);
+
+			if ( direction > 0 && distance < m_attribute.attackDistance ) {
+				e.BeAttacked( );
+			} else {
+				//e.BeAttacked(false);
+			}
+
 		}
+		return;
+	}
+
+	public void UpdateAnimator(string animClip ) {
+
+		if ( animClip != null ) {
+			m_Animator.SetBool(animClip, true);
+		}
+
+	}
+
+	public void UpdateAnimator( Vector3 move, string animClip ) {
+
+		UpdateAnimator(animClip);
 
 		base.UpdateAnimator(move);
 	}

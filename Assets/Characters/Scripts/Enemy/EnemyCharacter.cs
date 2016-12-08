@@ -10,14 +10,11 @@ public class EnemyCharacter : MonoBehaviour {
 
 	public CharacterController controller;
 
-	public PlayerCharacter player;
+	private PlayerCharacter player;
 
 	public GameObject damageTextObject;
 
 	public int damageTextDuring = 3;
-
-	
-	
 
 	private List<GameObject> damageTexts = new List<GameObject>( );
 
@@ -29,19 +26,15 @@ public class EnemyCharacter : MonoBehaviour {
 	void Start( ) {
 		mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
 		animator = GetComponent<Animator>( );
+		player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerCharacter>();
+		player.allEnemies.Add(this.gameObject);
 	}
 
 	// Update is called once per frame
 	void Update( ) {
 		updateDamageText( );
-		if ( player.isAttacking ) {
-			BeAttacked(true);
-			return;
-		} else {
-			BeAttacked(false);
-		}
-		if ( !InRange( ) ) {
 
+		if ( !InRange( ) ) {
 			Chase( );
 		} else {
 			//animator.SetFloat("Forward", 0.0f);
@@ -64,15 +57,17 @@ public class EnemyCharacter : MonoBehaviour {
 		controller.Move(this.transform.forward * speed * Time.deltaTime);
 		//animator.SetFloat("Forward", 1.0f);
 		animator.SetBool("run", true);
-
 	}
 
 	void updateDamageText( ) {
-		var transform = mainCamera.transform.position;
-		foreach(var text in damageTexts ) {
+		
+		//var transform = mainCamera.transform.position;
+		damageTexts.RemoveAll(item => item == null);
+		//return;
+		foreach (var text in damageTexts ) {
 			text.transform.Translate(new Vector3(0, 0.5f * Time.deltaTime, 0)); ;
-			text.transform.LookAt(mainCamera.transform.position);
-			text.transform.Rotate(new Vector3(0, 180, 0));
+			//text.transform.LookAt(mainCamera.transform.position);
+			//text.transform.Rotate(new Vector3(0, 180, 0));
 		}
 
 	}
@@ -80,16 +75,15 @@ public class EnemyCharacter : MonoBehaviour {
 		
 		GameObject obj =  Instantiate(damageTextObject, this.transform.position + new Vector3(0, 1, 0), Quaternion.identity) as GameObject;
 		obj.GetComponent<TextMesh>( ).text = text;
-		Destroy(obj, 2f);			// last only 2 seconds
 		damageTexts.Add(obj);
+		Destroy(obj, 2f);           // last only 2 seconds
 	}	
 
-	public void BeAttacked(bool state) {
-		animator.SetBool("hurt", state);
-		if( state ) {
+	public void BeAttacked( ) {
+		animator.SetBool("hurt", true);
+		//if( state ) {
 			
-		}
-		//animator.SetTrigger("Damaged");
+		//}
 	}
 
 }

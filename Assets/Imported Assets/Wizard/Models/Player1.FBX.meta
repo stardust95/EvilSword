@@ -1452,15 +1452,8 @@ ModelImporter:
       curves: []
       events:
       - time: 0.24050711
-        functionName: ChangeAttackState
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 1
-        messageOptions: 0
-      - time: 0.4388175
-        functionName: ChangeAttackState
-        data: 
+        functionName: Attack
+        data: Offence
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0
@@ -1468,18 +1461,16 @@ ModelImporter:
       transformMask:
       - path: 
         weight: 1
-      - path: ______01
-        weight: 1
       - path: Basic_Body
-        weight: 1
+        weight: 0
       - path: Basic_Hair
-        weight: 1
+        weight: 0
       - path: Basic_Hand
-        weight: 1
+        weight: 0
       - path: Basic_Helm
-        weight: 1
+        weight: 0
       - path: Basic_Shoes
-        weight: 1
+        weight: 0
       - path: Bip01
         weight: 1
       - path: Bip01/Bip01_Pelvis
@@ -1511,37 +1502,37 @@ ModelImporter:
       - path: Bip01/Bip01_Pelvis/Torso/Bip01_Spine1/Bip01_Spine2/Bip01_Neck/Bip01_Head
         weight: 1
       - path: Bip01/Bip01_Pelvis/Torso/Bip01_Spine1/Bip01_Spine2/Bip01_Neck/Bip01_Head/B_Hat02
-        weight: 1
+        weight: 0
       - path: Bip01/Bip01_Pelvis/Torso/Bip01_Spine1/Bip01_Spine2/Bip01_Neck/Bip01_Head/B_Hat02/B_Hat03
-        weight: 1
+        weight: 0
       - path: Bip01/Bip01_Pelvis/Torso/Bip01_Spine1/Bip01_Spine2/Bip01_Neck/Bip01_Head/Back_Bone01
-        weight: 1
+        weight: 0
       - path: Bip01/Bip01_Pelvis/Torso/Bip01_Spine1/Bip01_Spine2/Bip01_Neck/Bip01_Head/Back_Bone01/Back_Bone02
-        weight: 1
+        weight: 0
       - path: Bip01/Bip01_Pelvis/Torso/Bip01_Spine1/Bip01_Spine2/Bip01_Neck/Bip01_Head/Basic_Bone01
         weight: 1
       - path: Bip01/Bip01_Pelvis/Torso/Bip01_Spine1/Bip01_Spine2/Bip01_Neck/Bip01_Head/Basic_Bone02
         weight: 1
       - path: Bip01/Bip01_Pelvis/Torso/Bip01_Spine1/Bip01_Spine2/Bip01_Neck/Bip01_Head/F_Hat02
-        weight: 1
+        weight: 0
       - path: Bip01/Bip01_Pelvis/Torso/Bip01_Spine1/Bip01_Spine2/Bip01_Neck/Bip01_Head/F_Hat02/F_Hat03
-        weight: 1
+        weight: 0
       - path: Bip01/Bip01_Pelvis/Torso/Bip01_Spine1/Bip01_Spine2/Bip01_Neck/Bip01_Head/L_Hat02
-        weight: 1
+        weight: 0
       - path: Bip01/Bip01_Pelvis/Torso/Bip01_Spine1/Bip01_Spine2/Bip01_Neck/Bip01_Head/L_Hat02/L_Hat03
-        weight: 1
+        weight: 0
       - path: Bip01/Bip01_Pelvis/Torso/Bip01_Spine1/Bip01_Spine2/Bip01_Neck/Bip01_Head/MiddleHat_L02
-        weight: 1
+        weight: 0
       - path: Bip01/Bip01_Pelvis/Torso/Bip01_Spine1/Bip01_Spine2/Bip01_Neck/Bip01_Head/MiddleHat_L02/MiddleHat_L03
-        weight: 1
+        weight: 0
       - path: Bip01/Bip01_Pelvis/Torso/Bip01_Spine1/Bip01_Spine2/Bip01_Neck/Bip01_Head/MiddleHat_R02
-        weight: 1
+        weight: 0
       - path: Bip01/Bip01_Pelvis/Torso/Bip01_Spine1/Bip01_Spine2/Bip01_Neck/Bip01_Head/MiddleHat_R02/MiddleHat_R03
-        weight: 1
+        weight: 0
       - path: Bip01/Bip01_Pelvis/Torso/Bip01_Spine1/Bip01_Spine2/Bip01_Neck/Bip01_Head/R_Hat02
-        weight: 1
+        weight: 0
       - path: Bip01/Bip01_Pelvis/Torso/Bip01_Spine1/Bip01_Spine2/Bip01_Neck/Bip01_Head/R_Hat02/R_Hat03
-        weight: 1
+        weight: 0
       - path: Bip01/Bip01_Pelvis/Torso/Bip01_Spine1/Bip01_Spine2/Bip01_Neck/Bip01_L_Clavicle
         weight: 1
       - path: Bip01/Bip01_Pelvis/Torso/Bip01_Spine1/Bip01_Spine2/Bip01_Neck/Bip01_L_Clavicle/Bip01_L_UpperArm
@@ -1563,9 +1554,9 @@ ModelImporter:
       - path: Bip01/Bip01_Pelvis/Torso/Bip01_Spine1/Bip01_Spine2/Bip01_Neck/Bip01_L_Clavicle/Bip01_L_UpperArm/Bip01_L_Forearm/Bip01_L_Hand/Bip01_L_Finger2/Bip01_L_Finger21
         weight: 1
       - path: Bip01/Bip01_Pelvis/Torso/Bip01_Spine1/Bip01_Spine2/Bip01_Neck/Bip01_L_Clavicle/Bip01_L_UpperArm/Bip01_L_Forearm/Bip01_L_Hand/LH_Weapon
-        weight: 1
+        weight: 0
       - path: Bip01/Bip01_Pelvis/Torso/Bip01_Spine1/Bip01_Spine2/Bip01_Neck/Bip01_L_Clavicle/Bip01_L_UpperArm/Bip01_L_Forearm/Bip01_L_Hand/LH_Weapon/LH_Weapon01
-        weight: 1
+        weight: 0
       - path: Bip01/Bip01_Pelvis/Torso/Bip01_Spine1/Bip01_Spine2/Bip01_Neck/Bip01_R_Clavicle
         weight: 1
       - path: Bip01/Bip01_Pelvis/Torso/Bip01_Spine1/Bip01_Spine2/Bip01_Neck/Bip01_R_Clavicle/Bip01_R_UpperArm
@@ -1587,11 +1578,13 @@ ModelImporter:
       - path: Bip01/Bip01_Pelvis/Torso/Bip01_Spine1/Bip01_Spine2/Bip01_Neck/Bip01_R_Clavicle/Bip01_R_UpperArm/Bip01_R_Forearm/Bip01_R_Hand/Bip01_R_Finger2/Bip01_R_Finger21
         weight: 1
       - path: Bip01/Bip01_Pelvis/Torso/Bip01_Spine1/Bip01_Spine2/Bip01_Neck/Bip01_R_Clavicle/Bip01_R_UpperArm/Bip01_R_Forearm/Bip01_R_Hand/RH_Weapon
-        weight: 1
+        weight: 0
       - path: Bip01/Bip01_Pelvis/Torso/Bip01_Spine1/Bip01_Spine2/Bip01_Neck/Bip01_R_Clavicle/Bip01_R_UpperArm/Bip01_R_Forearm/Bip01_R_Hand/RH_Weapon/RH_Weapon01
-        weight: 1
+        weight: 0
       - path: VeryMaryBell_Face
-        weight: 1
+        weight: 0
+      - path: "\u6ED1\u575701"
+        weight: 0
       maskType: 0
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 48.9
@@ -1620,15 +1613,8 @@ ModelImporter:
       curves: []
       events:
       - time: 0.08438759
-        functionName: ChangeAttackState
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 1
-        messageOptions: 0
-      - time: 0.51898736
-        functionName: ChangeAttackState
-        data: 
+        functionName: Attack
+        data: Offence
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0
@@ -1636,18 +1622,16 @@ ModelImporter:
       transformMask:
       - path: 
         weight: 1
-      - path: ______01
-        weight: 1
       - path: Basic_Body
-        weight: 1
+        weight: 0
       - path: Basic_Hair
-        weight: 1
+        weight: 0
       - path: Basic_Hand
-        weight: 1
+        weight: 0
       - path: Basic_Helm
-        weight: 1
+        weight: 0
       - path: Basic_Shoes
-        weight: 1
+        weight: 0
       - path: Bip01
         weight: 1
       - path: Bip01/Bip01_Pelvis
@@ -1679,37 +1663,37 @@ ModelImporter:
       - path: Bip01/Bip01_Pelvis/Torso/Bip01_Spine1/Bip01_Spine2/Bip01_Neck/Bip01_Head
         weight: 1
       - path: Bip01/Bip01_Pelvis/Torso/Bip01_Spine1/Bip01_Spine2/Bip01_Neck/Bip01_Head/B_Hat02
-        weight: 1
+        weight: 0
       - path: Bip01/Bip01_Pelvis/Torso/Bip01_Spine1/Bip01_Spine2/Bip01_Neck/Bip01_Head/B_Hat02/B_Hat03
-        weight: 1
+        weight: 0
       - path: Bip01/Bip01_Pelvis/Torso/Bip01_Spine1/Bip01_Spine2/Bip01_Neck/Bip01_Head/Back_Bone01
-        weight: 1
+        weight: 0
       - path: Bip01/Bip01_Pelvis/Torso/Bip01_Spine1/Bip01_Spine2/Bip01_Neck/Bip01_Head/Back_Bone01/Back_Bone02
-        weight: 1
+        weight: 0
       - path: Bip01/Bip01_Pelvis/Torso/Bip01_Spine1/Bip01_Spine2/Bip01_Neck/Bip01_Head/Basic_Bone01
         weight: 1
       - path: Bip01/Bip01_Pelvis/Torso/Bip01_Spine1/Bip01_Spine2/Bip01_Neck/Bip01_Head/Basic_Bone02
         weight: 1
       - path: Bip01/Bip01_Pelvis/Torso/Bip01_Spine1/Bip01_Spine2/Bip01_Neck/Bip01_Head/F_Hat02
-        weight: 1
+        weight: 0
       - path: Bip01/Bip01_Pelvis/Torso/Bip01_Spine1/Bip01_Spine2/Bip01_Neck/Bip01_Head/F_Hat02/F_Hat03
-        weight: 1
+        weight: 0
       - path: Bip01/Bip01_Pelvis/Torso/Bip01_Spine1/Bip01_Spine2/Bip01_Neck/Bip01_Head/L_Hat02
-        weight: 1
+        weight: 0
       - path: Bip01/Bip01_Pelvis/Torso/Bip01_Spine1/Bip01_Spine2/Bip01_Neck/Bip01_Head/L_Hat02/L_Hat03
-        weight: 1
+        weight: 0
       - path: Bip01/Bip01_Pelvis/Torso/Bip01_Spine1/Bip01_Spine2/Bip01_Neck/Bip01_Head/MiddleHat_L02
-        weight: 1
+        weight: 0
       - path: Bip01/Bip01_Pelvis/Torso/Bip01_Spine1/Bip01_Spine2/Bip01_Neck/Bip01_Head/MiddleHat_L02/MiddleHat_L03
-        weight: 1
+        weight: 0
       - path: Bip01/Bip01_Pelvis/Torso/Bip01_Spine1/Bip01_Spine2/Bip01_Neck/Bip01_Head/MiddleHat_R02
-        weight: 1
+        weight: 0
       - path: Bip01/Bip01_Pelvis/Torso/Bip01_Spine1/Bip01_Spine2/Bip01_Neck/Bip01_Head/MiddleHat_R02/MiddleHat_R03
-        weight: 1
+        weight: 0
       - path: Bip01/Bip01_Pelvis/Torso/Bip01_Spine1/Bip01_Spine2/Bip01_Neck/Bip01_Head/R_Hat02
-        weight: 1
+        weight: 0
       - path: Bip01/Bip01_Pelvis/Torso/Bip01_Spine1/Bip01_Spine2/Bip01_Neck/Bip01_Head/R_Hat02/R_Hat03
-        weight: 1
+        weight: 0
       - path: Bip01/Bip01_Pelvis/Torso/Bip01_Spine1/Bip01_Spine2/Bip01_Neck/Bip01_L_Clavicle
         weight: 1
       - path: Bip01/Bip01_Pelvis/Torso/Bip01_Spine1/Bip01_Spine2/Bip01_Neck/Bip01_L_Clavicle/Bip01_L_UpperArm
@@ -1731,9 +1715,9 @@ ModelImporter:
       - path: Bip01/Bip01_Pelvis/Torso/Bip01_Spine1/Bip01_Spine2/Bip01_Neck/Bip01_L_Clavicle/Bip01_L_UpperArm/Bip01_L_Forearm/Bip01_L_Hand/Bip01_L_Finger2/Bip01_L_Finger21
         weight: 1
       - path: Bip01/Bip01_Pelvis/Torso/Bip01_Spine1/Bip01_Spine2/Bip01_Neck/Bip01_L_Clavicle/Bip01_L_UpperArm/Bip01_L_Forearm/Bip01_L_Hand/LH_Weapon
-        weight: 1
+        weight: 0
       - path: Bip01/Bip01_Pelvis/Torso/Bip01_Spine1/Bip01_Spine2/Bip01_Neck/Bip01_L_Clavicle/Bip01_L_UpperArm/Bip01_L_Forearm/Bip01_L_Hand/LH_Weapon/LH_Weapon01
-        weight: 1
+        weight: 0
       - path: Bip01/Bip01_Pelvis/Torso/Bip01_Spine1/Bip01_Spine2/Bip01_Neck/Bip01_R_Clavicle
         weight: 1
       - path: Bip01/Bip01_Pelvis/Torso/Bip01_Spine1/Bip01_Spine2/Bip01_Neck/Bip01_R_Clavicle/Bip01_R_UpperArm
@@ -1755,11 +1739,13 @@ ModelImporter:
       - path: Bip01/Bip01_Pelvis/Torso/Bip01_Spine1/Bip01_Spine2/Bip01_Neck/Bip01_R_Clavicle/Bip01_R_UpperArm/Bip01_R_Forearm/Bip01_R_Hand/Bip01_R_Finger2/Bip01_R_Finger21
         weight: 1
       - path: Bip01/Bip01_Pelvis/Torso/Bip01_Spine1/Bip01_Spine2/Bip01_Neck/Bip01_R_Clavicle/Bip01_R_UpperArm/Bip01_R_Forearm/Bip01_R_Hand/RH_Weapon
-        weight: 1
+        weight: 0
       - path: Bip01/Bip01_Pelvis/Torso/Bip01_Spine1/Bip01_Spine2/Bip01_Neck/Bip01_R_Clavicle/Bip01_R_UpperArm/Bip01_R_Forearm/Bip01_R_Hand/RH_Weapon/RH_Weapon01
-        weight: 1
+        weight: 0
       - path: VeryMaryBell_Face
-        weight: 1
+        weight: 0
+      - path: "\u6ED1\u575701"
+        weight: 0
       maskType: 0
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 48.9

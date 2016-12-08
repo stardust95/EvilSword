@@ -57,14 +57,22 @@ public class PlayerUserControl : MonoBehaviour {
 		float h = CrossPlatformInputManager.GetAxis("Horizontal");
 		float v = CrossPlatformInputManager.GetAxis("Vertical");
 		bool crouch = Input.GetKey(KeyCode.C);
+		bool dodge = Input.GetKeyDown(KeyCode.LeftShift);
 
 		for ( int i = 0; i < AttackKeys.Length; ++i ) {
 			if ( Input.GetKeyDown(AttackKeys[i]) ) {
-				m_Character.Attack(Attacks[i]);
-				Input.ResetInputAxes( );
+				//m_Character.Attack(Attacks[i]);
+				m_Character.UpdateAnimator(Attacks[i]);
+				//Input.ResetInputAxes( );
 			}
 		}
 
+		if ( dodge ) {
+			m_Character.UpdateAnimator("Dodge");
+			h *= 10;
+			v *= 10;
+			//Input.ResetInputAxes( );
+		}
 
 		// calculate move direction to pass to character
 		if ( m_Cam != null ) {
@@ -77,7 +85,7 @@ public class PlayerUserControl : MonoBehaviour {
 		}
 #if !MOBILE_INPUT
 		// walk speed multiplier
-		if ( Input.GetKey(KeyCode.LeftShift) ) m_Move *= 0.5f;
+		if ( Input.GetKey(KeyCode.LeftControl) ) m_Move *= 0.5f;
 #endif
 
 		// pass all parameters to the character control script
