@@ -28,10 +28,11 @@ public class PlayerCharacter : BaseCharacter {
 
 	PlayerAttibute m_attribute;
 
-	//private bool m_isAttacking = false;
-	//public bool isAttacking {
-	//	get { return m_isAttacking; }
-	//}
+	private bool m_isAttacking = false;
+	public bool isAttacking
+	{
+		get { return m_isAttacking; }
+	}
 
 	private List<GameObject> m_allEnemies = new List<GameObject>( );
 	public List<GameObject> allEnemies {
@@ -41,15 +42,15 @@ public class PlayerCharacter : BaseCharacter {
 	public new void Start( ) {
 		base.Start( );
 		m_attribute = new PlayerAttibute( );
-
+		GetComponentInChildren<TrailRenderer>( ).enabled = false;
+		
 	}
 
-	//public void ChangeAttackState(int state ) {
-	//	if ( state > 0 )
-	//		m_isAttacking = true;
-	//	else
-	//		m_isAttacking = false;
-	//}
+	public void ChangeAttackState(int state) {
+		m_isAttacking = state > 0;
+		GetComponentInChildren<TrailRenderer>( ).enabled = m_isAttacking;
+		Debug.Log(state);
+	}
 	
 	public void Attack(string attack ) {
 		//UpdateAnimator(new Vector3( ), attack);
@@ -71,7 +72,6 @@ public class PlayerCharacter : BaseCharacter {
 			} else {
 				//e.BeAttacked(false);
 			}
-
 		}
 		return;
 	}

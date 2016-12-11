@@ -69,8 +69,6 @@ public class PlayerUserControl : MonoBehaviour {
 
 		if ( dodge ) {
 			m_Character.UpdateAnimator("Dodge");
-			h *= 10;
-			v *= 10;
 			//Input.ResetInputAxes( );
 		}
 
