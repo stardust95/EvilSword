@@ -111,7 +111,7 @@ public class PlayerCharacter : BaseCharacter {
 
 	public void BeAttacked( ) {
 		this.UpdateAnimator("Damaged");
-		
+		attribute.TakeDamage("100", false);
 
 	}
 

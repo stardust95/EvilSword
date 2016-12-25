@@ -12,19 +12,9 @@ public class EnemyCharacter : MonoBehaviour {
 
 	private PlayerCharacter player;
 
-	public GameObject damageTextObject;
-
-	public int damageTextDuring = 3;
-
-	public GameObject damageEffect;
-
-	private List<GameObject> damageTexts = new List<GameObject>( );
-
 	private Animator animator;
 
 	//private GameObject mainCamera;
-
-	private GameObject effectContainer;
 
 	private Attribute attribute;
 
@@ -39,14 +29,15 @@ public class EnemyCharacter : MonoBehaviour {
 		animator = GetComponent<Animator>( );
 		player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerCharacter>();
 		player.allEnemies.Add(this.gameObject);
-		effectContainer = GameObject.FindGameObjectWithTag("EffectContainer");
 		attackTimer = AttackInterval;
 		attribute = GetComponent<Attribute>( );
 	}
 
 	// Update is called once per frame
 	void Update( ) {
-		updateDamageText( );
+		if ( attribute.IsDeath )
+			Death( );
+
 		if ( attackTimer > 0 )
 			attackTimer -= Time.deltaTime;
 
@@ -77,36 +68,16 @@ public class EnemyCharacter : MonoBehaviour {
 		animator.SetBool("run", true);
 	}
 
-	void updateDamageText( ) {
-
-		//var transform = mainCamera.transform.position;
-		damageTexts.RemoveAll(item => item == null);
-		//return;
-		foreach ( var text in damageTexts ) {
-			text.transform.Translate(new Vector3(0, 0.5f * Time.deltaTime, 0)); 
-		}
-
-	}
-	private void ShowDamageText( string str, bool isCritical = false) {		
-		GameObject text =  Instantiate(damageTextObject, this.transform.position + new Vector3(0, 1, 0), Quaternion.identity) as GameObject;
-		text.GetComponent<TextMesh>( ).text = str;
-		if( isCritical ) {
-			text.GetComponent<TextMesh>( ).color = Color.red;
-			player.Shake( );
-		}
-		damageTexts.Add(text);
-		Destroy(text, 2f);           // last only 2 seconds
-
-		GameObject effect = Instantiate(damageEffect) as GameObject;
-		effect.transform.SetParent(effectContainer.transform);
-		effect.transform.position = effectContainer.transform.position;
-		Destroy(effect, 2f);
-	}	
-
 	public void BeAttacked() {
 		int damage = (int)Random.Range(100, 200);
+		bool critical = damage > 150;
+
 		animator.SetBool("hurt", true);
-		ShowDamageText(damage.ToString(), damage > 150);
+
+		attribute.TakeDamage(damage.ToString(), critical);
+
+		if ( critical )
+			player.Shake( );
 	}
 
 	public void Attack( ) {
@@ -125,6 +96,11 @@ public class EnemyCharacter : MonoBehaviour {
 		}
 
 		attackTimer = AttackInterval;
+	}
+
+	private void Death( ) {
+		animator.SetBool("death", true);
+		Destroy(this.gameObject, 3);
 	}
 
 }
