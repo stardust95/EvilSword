@@ -10,6 +10,8 @@ public class EnemyCharacter : MonoBehaviour {
 
 	public int searchRange = 10;
 
+	public int attackNumber;
+
 	public CharacterController controller;
 
 	private PlayerCharacter player;
@@ -57,14 +59,32 @@ public class EnemyCharacter : MonoBehaviour {
 		if ( attackTimer > 0 )
 			attackTimer -= Time.deltaTime;
 
-		if( InRange(attribute.attackDistance) ) {
-			if ( !isAttacking && attackTimer < 0 ) {
-				Attack( );
+		AnimatorStateInfo state = animator.GetCurrentAnimatorStateInfo(0);
+		isAttacking = false;
+		for(int i=1; i<attackNumber; i++ ) {
+			if( state.IsName("Attack" + i) ) {
+				isAttacking = true;
+				break;
 			}
-		} else if ( InRange(searchRange) ) {
-			navAgent.SetDestination(player.transform.position);
+		}
+
+		Debug.Log(animator.GetBool("run"));
+		if ( isAttacking ) {
+			animator.SetBool("run", false);
+			return;
+		}
+
+		if ( InRange(attribute.attackDistance) && attackTimer < 0 ) {       // attack state
+			navAgent.Stop( );
+			attackTimer = AttackInterval;
+			animator.SetBool("run", false);
+			animator.SetBool("attack" + Random.Range(1, attackNumber + 1).ToString( ), true);
+		} else if ( InRange(searchRange) ) {                                    // Found
+			navAgent.Resume( );
+			navAgent.SetDestination(player.gameObject.transform.position);
 			animator.SetBool("run", true);
 		} else if ( navAgent.remainingDistance < 1 ) {       // arrive at one patrol point
+			navAgent.Resume( );
 			mobPointIndex = ( mobPointIndex + 1 ) % mobPoints.Length;
 			navAgent.SetDestination(mobPoints[mobPointIndex].transform.position);
 			animator.SetBool("run", true);
@@ -80,16 +100,7 @@ public class EnemyCharacter : MonoBehaviour {
 			return true;
 		return false;
 	}
-
-	//void Chase( ) {
-	//	Vector3 playerPos = player.transform.position;
-	//	playerPos.y = 0;
-	//	this.transform.LookAt(playerPos);
-	//	controller.Move(this.transform.forward * speed * Time.deltaTime);
-	//	//animator.SetFloat("Forward", 1.0f);
-	//	animator.SetBool("run", true);
-	//}
-
+	
 	public void BeAttacked() {
 
 		if ( attribute.IsDeath )
@@ -107,10 +118,8 @@ public class EnemyCharacter : MonoBehaviour {
 	}
 
 	public void Attack( ) {
-		animator.SetBool("run", false);
-		animator.SetBool("attack1", true);
 
-		float distance = Vector3.Distance(player.transform.position, transform.position);
+		float distance = Vector3.Distance(player.transform.position, navAgent.nextPosition);
 
 		Vector3 dir = ( player.transform.position - transform.position ).normalized;
 
@@ -119,10 +128,9 @@ public class EnemyCharacter : MonoBehaviour {
 		if ( direction > 0 && distance < attribute.attackDistance ) {
 			player.BeAttacked( );
 		} else {
-			//e.BeAttacked(false);
+
 		}
 
-		attackTimer = AttackInterval;
 	}
 
 	private void Death( ) {
