@@ -35,8 +35,10 @@ public class EnemyCharacter : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update( ) {
-		if ( attribute.IsDeath )
+		if ( attribute.IsDeath ) {
 			Death( );
+			return;
+		}
 
 		if ( attackTimer > 0 )
 			attackTimer -= Time.deltaTime;
@@ -69,6 +71,10 @@ public class EnemyCharacter : MonoBehaviour {
 	}
 
 	public void BeAttacked() {
+
+		if ( attribute.IsDeath )
+			return;
+
 		int damage = (int)Random.Range(100, 200);
 		bool critical = damage > 150;
 
@@ -100,6 +106,7 @@ public class EnemyCharacter : MonoBehaviour {
 
 	private void Death( ) {
 		animator.SetBool("death", true);
+
 		Destroy(this.gameObject, 3);
 	}
 

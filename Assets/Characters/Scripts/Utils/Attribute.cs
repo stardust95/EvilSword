@@ -60,6 +60,10 @@ public class Attribute : MonoBehaviour {
 	}
 
 	public void TakeDamage( string str, bool isCritical = false ) {
+
+		if ( isDeath )
+			return;
+
 		GameObject text = Instantiate(damageTextObject, this.transform.position + new Vector3(0, 1, 0), Quaternion.identity) as GameObject;
 		text.GetComponent<TextMesh>( ).text = str;
 		if ( isCritical ) {

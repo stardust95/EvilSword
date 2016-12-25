@@ -46,6 +46,8 @@ public class PlayerCharacter : BaseCharacter {
 		if ( isAttacking || !m_IsGrounded )
 			return;
 
+		allEnemies.RemoveAll(item => item == null);
+
 		if( attack.Contains("Skill") ) {
 			this.UpdateAnimator("Skill4");
 			GameObject activateEffect = Instantiate(ActivateEffect);
