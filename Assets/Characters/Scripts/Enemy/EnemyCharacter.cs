@@ -6,7 +6,9 @@ public class EnemyCharacter : MonoBehaviour {
 
 	public float speed;
 	//public float minDis, maxDis;
-	public float range;
+	//public float range;
+
+	public int searchRange = 10;
 
 	public CharacterController controller;
 
@@ -18,10 +20,16 @@ public class EnemyCharacter : MonoBehaviour {
 
 	private Attribute attribute;
 
+	private bool isFoundPlayer;
 	private bool isAttacking;
 	private float attackTimer;
 
 	public float AttackInterval = 3f;
+
+	private NavMeshAgent navAgent = null;
+
+	private GameObject[ ] mobPoints;
+	private int mobPointIndex = -1;
 
 	// Use this for initialization
 	void Start( ) {
@@ -31,6 +39,12 @@ public class EnemyCharacter : MonoBehaviour {
 		player.allEnemies.Add(this.gameObject);
 		attackTimer = AttackInterval;
 		attribute = GetComponent<Attribute>( );
+		navAgent = GetComponent<NavMeshAgent>( );
+		mobPoints = GameObject.FindGameObjectsWithTag("MobPoint");
+		if ( mobPoints.Length > 0 ) {
+			mobPointIndex = 0;
+			navAgent.SetDestination(mobPoints[mobPointIndex].transform.position);
+		}
 	}
 
 	// Update is called once per frame
@@ -43,32 +57,38 @@ public class EnemyCharacter : MonoBehaviour {
 		if ( attackTimer > 0 )
 			attackTimer -= Time.deltaTime;
 
-		if ( !InRange( ) ) {
-			Chase( );
-		} else {
-			animator.SetBool("run", false);		// stop running
-			if( !isAttacking && attackTimer < 0) {
+		if( InRange(attribute.attackDistance) ) {
+			if ( !isAttacking && attackTimer < 0 ) {
 				Attack( );
 			}
+		} else if ( InRange(searchRange) ) {
+			navAgent.SetDestination(player.transform.position);
+			animator.SetBool("run", true);
+		} else if ( navAgent.remainingDistance < 1 ) {       // arrive at one patrol point
+			mobPointIndex = ( mobPointIndex + 1 ) % mobPoints.Length;
+			navAgent.SetDestination(mobPoints[mobPointIndex].transform.position);
+			animator.SetBool("run", true);
 		}
+
+		
 		//Debug.Log(InRange( ));
 	}
 
-	bool InRange( ) {
+	bool InRange(float range) {
 		var dis = Vector3.Distance(this.transform.position, player.transform.position);
 		if ( dis < range )
 			return true;
 		return false;
 	}
 
-	void Chase( ) {
-		Vector3 playerPos = player.transform.position;
-		playerPos.y = 0;
-		this.transform.LookAt(playerPos);
-		controller.Move(this.transform.forward * speed * Time.deltaTime);
-		//animator.SetFloat("Forward", 1.0f);
-		animator.SetBool("run", true);
-	}
+	//void Chase( ) {
+	//	Vector3 playerPos = player.transform.position;
+	//	playerPos.y = 0;
+	//	this.transform.LookAt(playerPos);
+	//	controller.Move(this.transform.forward * speed * Time.deltaTime);
+	//	//animator.SetFloat("Forward", 1.0f);
+	//	animator.SetBool("run", true);
+	//}
 
 	public void BeAttacked() {
 
@@ -87,6 +107,7 @@ public class EnemyCharacter : MonoBehaviour {
 	}
 
 	public void Attack( ) {
+		animator.SetBool("run", false);
 		animator.SetBool("attack1", true);
 
 		float distance = Vector3.Distance(player.transform.position, transform.position);

@@ -28,18 +28,30 @@ public class PlayerCharacter : BaseCharacter {
 		get { return m_allEnemies;  }
 	}
 
+	public int SkillInterval = 3;
+	private float[ ] skillCool;
+
 	public new void Start( ) {
 		base.Start( );
 		GetComponentInChildren<TrailRenderer>( ).enabled = false;
-		cameraShake = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraShake>( );
+		cameraShake = GameObject.FindGameObjectWithTag("MyMainCamera").GetComponent<CameraShake>( );
 		attribute = GetComponent<Attribute>( );
-
+		skillCool = new float[Skills.Length];
 	}
 
 	public void ChangeAttackState(int state) {
 		isAttacking = state > 0;
 		GetComponentInChildren<TrailRenderer>( ).enabled = isAttacking;
 		//Debug.Log(state);
+	}
+
+	void Update( ) {
+		for(int i=0; i<skillCool.Length; i++ ) {
+			if( skillCool[i] > 0 ) {
+				skillCool[i] -= Time.deltaTime;
+			}
+		}
+
 	}
 	
 	public void Attack(string attack ) {
@@ -49,6 +61,12 @@ public class PlayerCharacter : BaseCharacter {
 		allEnemies.RemoveAll(item => item == null);
 
 		if( attack.Contains("Skill") ) {
+			int skillNum = int.Parse(attack.Substring("Skill".Length)) - 1;
+
+			if ( skillNum >= Skills.Length || skillCool[skillNum] > 0 ) {
+				return;
+			}
+
 			this.UpdateAnimator("Skill4");
 			GameObject activateEffect = Instantiate(ActivateEffect);
 
@@ -60,14 +78,14 @@ public class PlayerCharacter : BaseCharacter {
 
 			Destroy(activateEffect, 1f);
 
-			int skillNum = int.Parse(attack.Substring("Skill".Length)) - 1;
-			if( skillNum < Skills.Length ) {
-				GameObject effect = Instantiate(Skills[skillNum]) as GameObject;
-				effect.transform.position = this.transform.position;
-				effect.transform.position += this.transform.forward * 3;
-				effect.GetComponent<ProjectileScript>( ).Impact(allEnemies.ToArray());
-				Destroy(effect, 5f);
-			}
+			
+			skillCool[skillNum] = SkillInterval;
+			GameObject effect = Instantiate(Skills[skillNum]) as GameObject;
+			effect.transform.position = this.transform.position;
+			effect.transform.position += this.transform.forward * 3;
+			effect.GetComponent<ProjectileScript>( ).Impact(allEnemies.ToArray());
+			Destroy(effect, 5f);
+			
 
 		} else {                // Sword Attack
 			this.UpdateAnimator(attack);
@@ -118,7 +136,8 @@ public class PlayerCharacter : BaseCharacter {
 	}
 
 	public void Shake( ) {
-		cameraShake.ShakeCamera(1f, 0.01f);
+		if( cameraShake != null )
+			cameraShake.ShakeCamera(1f, 0.01f);
 	}
 
 }
