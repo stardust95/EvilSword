@@ -16,13 +16,21 @@ public class PlayerUserControl : MonoBehaviour {
 			KeyCode.K,				// For Kick
 			KeyCode.U,				// For Rise
 			KeyCode.L,				// For Offence
+			KeyCode.Alpha1,		// For Skill1
+			KeyCode.Alpha2,		// For Skill1
+			KeyCode.Alpha3,		// For Skill1
+			KeyCode.Alpha4,		// For Skill1
 		};
 
 	private static string[ ] Attacks = {
 			"Jab",
 			"Kick",
 			"Rise",
-			"Offence"
+			"Offence",
+			"Skill1",
+			"Skill2",
+			"Skill3",
+			"Skill4",
 		};
 
 	private void Start( ) {
@@ -61,8 +69,8 @@ public class PlayerUserControl : MonoBehaviour {
 
 		for ( int i = 0; i < AttackKeys.Length; ++i ) {
 			if ( Input.GetKeyDown(AttackKeys[i]) ) {
-				//m_Character.Attack(Attacks[i]);
-				m_Character.UpdateAnimator(Attacks[i]);
+				m_Character.Attack(Attacks[i]);
+				//m_Character.UpdateAnimator(Attacks[i]);
 				//Input.ResetInputAxes( );
 			}
 		}
@@ -92,4 +100,7 @@ public class PlayerUserControl : MonoBehaviour {
 		m_Jump = false;
 		//Debug.Log(m_Character.isAttacking( ));
 	}
+
+
+
 }

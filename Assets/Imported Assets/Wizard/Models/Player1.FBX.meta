@@ -144,7 +144,7 @@ ModelImporter:
     7400008: Fall
     7400010: MidAir
     7400012: JumpUp
-    7400014: Common_Offence1
+    7400014: Skill3
     7400016: Common_Offence2
     7400018: Common_Offence3
     7400020: Common_Offence4
@@ -155,7 +155,7 @@ ModelImporter:
     7400030: Skill4
     7400032: Dodge
     7400034: Die
-    7400036: Skill3
+    7400036: NotUsed
     9500000: //RootNode
     13700000: Basic_Body
     13700002: Basic_Hair
@@ -222,8 +222,6 @@ ModelImporter:
       transformMask:
       - path: 
         weight: 1
-      - path: ______01
-        weight: 0
       - path: Basic_Body
         weight: 0
       - path: Basic_Hair
@@ -345,6 +343,8 @@ ModelImporter:
       - path: Bip01/Bip01_Pelvis/Torso/Bip01_Spine1/Bip01_Spine2/Bip01_Neck/Bip01_R_Clavicle/Bip01_R_UpperArm/Bip01_R_Forearm/Bip01_R_Hand/RH_Weapon/RH_Weapon01
         weight: 0
       - path: VeryMaryBell_Face
+        weight: 0
+      - path: "\u6ED1\u575701"
         weight: 0
       maskType: 0
       maskSource: {instanceID: 0}
@@ -1274,7 +1274,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Common_Offence1
+      name: Skill3
       takeName: Take 001
       firstFrame: 542
       lastFrame: 571
@@ -1287,7 +1287,7 @@ ModelImporter:
       loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 1
-      loopBlendPositionY: 1
+      loopBlendPositionY: 0
       loopBlendPositionXZ: 1
       keepOriginalOrientation: 0
       keepOriginalPositionY: 0
@@ -1300,133 +1300,133 @@ ModelImporter:
       transformMask:
       - path: 
         weight: 1
-      - path: ______01
-        weight: 1
       - path: Basic_Body
-        weight: 1
+        weight: 0
       - path: Basic_Hair
-        weight: 1
+        weight: 0
       - path: Basic_Hand
-        weight: 1
+        weight: 0
       - path: Basic_Helm
-        weight: 1
+        weight: 0
       - path: Basic_Shoes
-        weight: 1
+        weight: 0
       - path: Bip01
-        weight: 1
+        weight: 0
       - path: Bip01/Bip01_Pelvis
-        weight: 1
+        weight: 0
       - path: Bip01/Bip01_Pelvis/Bip01_L_Thigh
-        weight: 1
+        weight: 0
       - path: Bip01/Bip01_Pelvis/Bip01_L_Thigh/Bip01_L_Calf
-        weight: 1
+        weight: 0
       - path: Bip01/Bip01_Pelvis/Bip01_L_Thigh/Bip01_L_Calf/Bip01_L_Foot
-        weight: 1
+        weight: 0
       - path: Bip01/Bip01_Pelvis/Bip01_L_Thigh/Bip01_L_Calf/Bip01_L_Foot/Bip01_L_Toe0
-        weight: 1
+        weight: 0
       - path: Bip01/Bip01_Pelvis/Bip01_R_Thigh
-        weight: 1
+        weight: 0
       - path: Bip01/Bip01_Pelvis/Bip01_R_Thigh/Bip01_R_Calf
-        weight: 1
+        weight: 0
       - path: Bip01/Bip01_Pelvis/Bip01_R_Thigh/Bip01_R_Calf/Bip01_R_Foot
-        weight: 1
+        weight: 0
       - path: Bip01/Bip01_Pelvis/Bip01_R_Thigh/Bip01_R_Calf/Bip01_R_Foot/Bip01_R_Toe0
-        weight: 1
+        weight: 0
       - path: Bip01/Bip01_Pelvis/Torso
-        weight: 1
+        weight: 0
       - path: Bip01/Bip01_Pelvis/Torso/Bip01_Spine1
-        weight: 1
+        weight: 0
       - path: Bip01/Bip01_Pelvis/Torso/Bip01_Spine1/Bip01_Spine2
-        weight: 1
+        weight: 0
       - path: Bip01/Bip01_Pelvis/Torso/Bip01_Spine1/Bip01_Spine2/Bip01_Neck
-        weight: 1
+        weight: 0
       - path: Bip01/Bip01_Pelvis/Torso/Bip01_Spine1/Bip01_Spine2/Bip01_Neck/Bip01_Head
-        weight: 1
+        weight: 0
       - path: Bip01/Bip01_Pelvis/Torso/Bip01_Spine1/Bip01_Spine2/Bip01_Neck/Bip01_Head/B_Hat02
-        weight: 1
+        weight: 0
       - path: Bip01/Bip01_Pelvis/Torso/Bip01_Spine1/Bip01_Spine2/Bip01_Neck/Bip01_Head/B_Hat02/B_Hat03
-        weight: 1
+        weight: 0
       - path: Bip01/Bip01_Pelvis/Torso/Bip01_Spine1/Bip01_Spine2/Bip01_Neck/Bip01_Head/Back_Bone01
-        weight: 1
+        weight: 0
       - path: Bip01/Bip01_Pelvis/Torso/Bip01_Spine1/Bip01_Spine2/Bip01_Neck/Bip01_Head/Back_Bone01/Back_Bone02
-        weight: 1
+        weight: 0
       - path: Bip01/Bip01_Pelvis/Torso/Bip01_Spine1/Bip01_Spine2/Bip01_Neck/Bip01_Head/Basic_Bone01
-        weight: 1
+        weight: 0
       - path: Bip01/Bip01_Pelvis/Torso/Bip01_Spine1/Bip01_Spine2/Bip01_Neck/Bip01_Head/Basic_Bone02
-        weight: 1
+        weight: 0
       - path: Bip01/Bip01_Pelvis/Torso/Bip01_Spine1/Bip01_Spine2/Bip01_Neck/Bip01_Head/F_Hat02
-        weight: 1
+        weight: 0
       - path: Bip01/Bip01_Pelvis/Torso/Bip01_Spine1/Bip01_Spine2/Bip01_Neck/Bip01_Head/F_Hat02/F_Hat03
-        weight: 1
+        weight: 0
       - path: Bip01/Bip01_Pelvis/Torso/Bip01_Spine1/Bip01_Spine2/Bip01_Neck/Bip01_Head/L_Hat02
-        weight: 1
+        weight: 0
       - path: Bip01/Bip01_Pelvis/Torso/Bip01_Spine1/Bip01_Spine2/Bip01_Neck/Bip01_Head/L_Hat02/L_Hat03
-        weight: 1
+        weight: 0
       - path: Bip01/Bip01_Pelvis/Torso/Bip01_Spine1/Bip01_Spine2/Bip01_Neck/Bip01_Head/MiddleHat_L02
-        weight: 1
+        weight: 0
       - path: Bip01/Bip01_Pelvis/Torso/Bip01_Spine1/Bip01_Spine2/Bip01_Neck/Bip01_Head/MiddleHat_L02/MiddleHat_L03
-        weight: 1
+        weight: 0
       - path: Bip01/Bip01_Pelvis/Torso/Bip01_Spine1/Bip01_Spine2/Bip01_Neck/Bip01_Head/MiddleHat_R02
-        weight: 1
+        weight: 0
       - path: Bip01/Bip01_Pelvis/Torso/Bip01_Spine1/Bip01_Spine2/Bip01_Neck/Bip01_Head/MiddleHat_R02/MiddleHat_R03
-        weight: 1
+        weight: 0
       - path: Bip01/Bip01_Pelvis/Torso/Bip01_Spine1/Bip01_Spine2/Bip01_Neck/Bip01_Head/R_Hat02
-        weight: 1
+        weight: 0
       - path: Bip01/Bip01_Pelvis/Torso/Bip01_Spine1/Bip01_Spine2/Bip01_Neck/Bip01_Head/R_Hat02/R_Hat03
-        weight: 1
+        weight: 0
       - path: Bip01/Bip01_Pelvis/Torso/Bip01_Spine1/Bip01_Spine2/Bip01_Neck/Bip01_L_Clavicle
-        weight: 1
+        weight: 0
       - path: Bip01/Bip01_Pelvis/Torso/Bip01_Spine1/Bip01_Spine2/Bip01_Neck/Bip01_L_Clavicle/Bip01_L_UpperArm
-        weight: 1
+        weight: 0
       - path: Bip01/Bip01_Pelvis/Torso/Bip01_Spine1/Bip01_Spine2/Bip01_Neck/Bip01_L_Clavicle/Bip01_L_UpperArm/Bip01_L_Forearm
-        weight: 1
+        weight: 0
       - path: Bip01/Bip01_Pelvis/Torso/Bip01_Spine1/Bip01_Spine2/Bip01_Neck/Bip01_L_Clavicle/Bip01_L_UpperArm/Bip01_L_Forearm/Bip01_L_Hand
-        weight: 1
+        weight: 0
       - path: Bip01/Bip01_Pelvis/Torso/Bip01_Spine1/Bip01_Spine2/Bip01_Neck/Bip01_L_Clavicle/Bip01_L_UpperArm/Bip01_L_Forearm/Bip01_L_Hand/Bip01_L_Finger0
-        weight: 1
+        weight: 0
       - path: Bip01/Bip01_Pelvis/Torso/Bip01_Spine1/Bip01_Spine2/Bip01_Neck/Bip01_L_Clavicle/Bip01_L_UpperArm/Bip01_L_Forearm/Bip01_L_Hand/Bip01_L_Finger0/Bip01_L_Finger01
-        weight: 1
+        weight: 0
       - path: Bip01/Bip01_Pelvis/Torso/Bip01_Spine1/Bip01_Spine2/Bip01_Neck/Bip01_L_Clavicle/Bip01_L_UpperArm/Bip01_L_Forearm/Bip01_L_Hand/Bip01_L_Finger1
-        weight: 1
+        weight: 0
       - path: Bip01/Bip01_Pelvis/Torso/Bip01_Spine1/Bip01_Spine2/Bip01_Neck/Bip01_L_Clavicle/Bip01_L_UpperArm/Bip01_L_Forearm/Bip01_L_Hand/Bip01_L_Finger1/Bip01_L_Finger11
-        weight: 1
+        weight: 0
       - path: Bip01/Bip01_Pelvis/Torso/Bip01_Spine1/Bip01_Spine2/Bip01_Neck/Bip01_L_Clavicle/Bip01_L_UpperArm/Bip01_L_Forearm/Bip01_L_Hand/Bip01_L_Finger2
-        weight: 1
+        weight: 0
       - path: Bip01/Bip01_Pelvis/Torso/Bip01_Spine1/Bip01_Spine2/Bip01_Neck/Bip01_L_Clavicle/Bip01_L_UpperArm/Bip01_L_Forearm/Bip01_L_Hand/Bip01_L_Finger2/Bip01_L_Finger21
-        weight: 1
+        weight: 0
       - path: Bip01/Bip01_Pelvis/Torso/Bip01_Spine1/Bip01_Spine2/Bip01_Neck/Bip01_L_Clavicle/Bip01_L_UpperArm/Bip01_L_Forearm/Bip01_L_Hand/LH_Weapon
-        weight: 1
+        weight: 0
       - path: Bip01/Bip01_Pelvis/Torso/Bip01_Spine1/Bip01_Spine2/Bip01_Neck/Bip01_L_Clavicle/Bip01_L_UpperArm/Bip01_L_Forearm/Bip01_L_Hand/LH_Weapon/LH_Weapon01
-        weight: 1
+        weight: 0
       - path: Bip01/Bip01_Pelvis/Torso/Bip01_Spine1/Bip01_Spine2/Bip01_Neck/Bip01_R_Clavicle
-        weight: 1
+        weight: 0
       - path: Bip01/Bip01_Pelvis/Torso/Bip01_Spine1/Bip01_Spine2/Bip01_Neck/Bip01_R_Clavicle/Bip01_R_UpperArm
-        weight: 1
+        weight: 0
       - path: Bip01/Bip01_Pelvis/Torso/Bip01_Spine1/Bip01_Spine2/Bip01_Neck/Bip01_R_Clavicle/Bip01_R_UpperArm/Bip01_R_Forearm
-        weight: 1
+        weight: 0
       - path: Bip01/Bip01_Pelvis/Torso/Bip01_Spine1/Bip01_Spine2/Bip01_Neck/Bip01_R_Clavicle/Bip01_R_UpperArm/Bip01_R_Forearm/Bip01_R_Hand
-        weight: 1
+        weight: 0
       - path: Bip01/Bip01_Pelvis/Torso/Bip01_Spine1/Bip01_Spine2/Bip01_Neck/Bip01_R_Clavicle/Bip01_R_UpperArm/Bip01_R_Forearm/Bip01_R_Hand/Bip01_R_Finger0
-        weight: 1
+        weight: 0
       - path: Bip01/Bip01_Pelvis/Torso/Bip01_Spine1/Bip01_Spine2/Bip01_Neck/Bip01_R_Clavicle/Bip01_R_UpperArm/Bip01_R_Forearm/Bip01_R_Hand/Bip01_R_Finger0/Bip01_R_Finger01
-        weight: 1
+        weight: 0
       - path: Bip01/Bip01_Pelvis/Torso/Bip01_Spine1/Bip01_Spine2/Bip01_Neck/Bip01_R_Clavicle/Bip01_R_UpperArm/Bip01_R_Forearm/Bip01_R_Hand/Bip01_R_Finger1
-        weight: 1
+        weight: 0
       - path: Bip01/Bip01_Pelvis/Torso/Bip01_Spine1/Bip01_Spine2/Bip01_Neck/Bip01_R_Clavicle/Bip01_R_UpperArm/Bip01_R_Forearm/Bip01_R_Hand/Bip01_R_Finger1/Bip01_R_Finger11
-        weight: 1
+        weight: 0
       - path: Bip01/Bip01_Pelvis/Torso/Bip01_Spine1/Bip01_Spine2/Bip01_Neck/Bip01_R_Clavicle/Bip01_R_UpperArm/Bip01_R_Forearm/Bip01_R_Hand/Bip01_R_Finger2
-        weight: 1
+        weight: 0
       - path: Bip01/Bip01_Pelvis/Torso/Bip01_Spine1/Bip01_Spine2/Bip01_Neck/Bip01_R_Clavicle/Bip01_R_UpperArm/Bip01_R_Forearm/Bip01_R_Hand/Bip01_R_Finger2/Bip01_R_Finger21
-        weight: 1
+        weight: 0
       - path: Bip01/Bip01_Pelvis/Torso/Bip01_Spine1/Bip01_Spine2/Bip01_Neck/Bip01_R_Clavicle/Bip01_R_UpperArm/Bip01_R_Forearm/Bip01_R_Hand/RH_Weapon
-        weight: 1
+        weight: 0
       - path: Bip01/Bip01_Pelvis/Torso/Bip01_Spine1/Bip01_Spine2/Bip01_Neck/Bip01_R_Clavicle/Bip01_R_UpperArm/Bip01_R_Forearm/Bip01_R_Hand/RH_Weapon/RH_Weapon01
-        weight: 1
+        weight: 0
       - path: VeryMaryBell_Face
-        weight: 1
+        weight: 0
+      - path: "\u6ED1\u575701"
+        weight: 0
       maskType: 0
       maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
+      additiveReferencePoseFrame: 48.9
     - serializedVersion: 16
       name: Common_Offence2
       takeName: Take 001
@@ -1451,21 +1451,14 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.18942267
+      - time: 0.008934864
         functionName: ChangeAttackState
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 1
         messageOptions: 0
-      - time: 0.19999954
-        functionName: Attack
-        data: Offence
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0.8166677
+      - time: 1
         functionName: ChangeAttackState
         data: 
         objectReferenceParameter: {instanceID: 0}
@@ -1626,21 +1619,14 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.08438759
-        functionName: Attack
-        data: Offence
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0.19679421
+      - time: 0.035818603
         functionName: ChangeAttackState
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 1
         messageOptions: 0
-      - time: 0.9974367
+      - time: 1
         functionName: ChangeAttackState
         data: 
         objectReferenceParameter: {instanceID: 0}
@@ -2086,7 +2072,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Skill3
+      name: NotUsed
       takeName: Take 001
       firstFrame: 1443
       lastFrame: 1468
@@ -3322,9 +3308,10 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    rootMotionBoneName: Basic_Body
+    rootMotionBoneName: 
     hasTranslationDoF: 0
-  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: d6dad0fb52ba12f458cc7ffb66882391,
+    type: 3}
   animationType: 3
   humanoidOversampling: 1
   additionalBone: 0

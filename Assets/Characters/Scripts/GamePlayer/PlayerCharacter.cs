@@ -6,32 +6,21 @@ using System.Collections.Generic;
 [RequireComponent(typeof(CapsuleCollider))]
 [RequireComponent(typeof(Animator))]
 public class PlayerCharacter : BaseCharacter {
+	
 
-	public class PlayerAttibute {
-		public int HP;
-		public int MP;
-		public float attack;
-		public float defence;
-		public float attackDistance;
-		public float skillDistance;
+	public GameObject[] Skills;
 
-		public PlayerAttibute( ) {
-			HP = 100;
-			MP = 100;
-			attack = 10.0f;
-			defence = 10.0f;
-			attackDistance = 1.0f;
-			skillDistance = 7.0f;
-		}
+	public GameObject ActivateEffect;
 
-	}
+	private CameraShake cameraShake;
 
-	PlayerAttibute m_attribute;
+	private bool isAttacking = false;
 
-	private bool m_isAttacking = false;
-	public bool isAttacking
+	private Attribute attribute;
+
+	public bool IsAttacking
 	{
-		get { return m_isAttacking; }
+		get { return isAttacking; }
 	}
 
 	private List<GameObject> m_allEnemies = new List<GameObject>( );
@@ -41,23 +30,51 @@ public class PlayerCharacter : BaseCharacter {
 
 	public new void Start( ) {
 		base.Start( );
-		m_attribute = new PlayerAttibute( );
 		GetComponentInChildren<TrailRenderer>( ).enabled = false;
-		
+		cameraShake = GameObject.FindGameObjectWithTag("MyMainCamera").GetComponent<CameraShake>( );
+		attribute = GetComponent<Attribute>( );
+
 	}
 
 	public void ChangeAttackState(int state) {
-		m_isAttacking = state > 0;
-		GetComponentInChildren<TrailRenderer>( ).enabled = m_isAttacking;
-		Debug.Log(state);
+		isAttacking = state > 0;
+		GetComponentInChildren<TrailRenderer>( ).enabled = isAttacking;
+		//Debug.Log(state);
 	}
 	
 	public void Attack(string attack ) {
-		//UpdateAnimator(new Vector3( ), attack);
-		CalcAttackEnemies( );
+		if ( isAttacking || !m_IsGrounded )
+			return;
+
+		if( attack.Contains("Skill") ) {
+			this.UpdateAnimator("Skill4");
+			GameObject activateEffect = Instantiate(ActivateEffect);
+
+			activateEffect.transform.position = this.gameObject.transform.position;
+
+			activateEffect.transform.position += this.gameObject.transform.forward * 1;
+			activateEffect.transform.position += new Vector3(0, 1, 0);
+			activateEffect.transform.rotation = this.gameObject.transform.rotation;
+
+			Destroy(activateEffect, 1f);
+
+			int skillNum = int.Parse(attack.Substring("Skill".Length)) - 1;
+			if( skillNum < Skills.Length ) {
+				GameObject effect = Instantiate(Skills[skillNum]) as GameObject;
+				effect.transform.position = this.transform.position;
+				effect.transform.position += this.transform.forward * 3;
+				effect.GetComponent<ProjectileScript>( ).Impact(allEnemies.ToArray());
+				Destroy(effect, 5f);
+			}
+
+		} else {                // Sword Attack
+			this.UpdateAnimator(attack);
+			WeaponAttackEnemies( );
+		}
+
 	}
 
-	protected void CalcAttackEnemies( ) {
+	protected void WeaponAttackEnemies( ) {
 		foreach ( GameObject enemy in allEnemies ) {
 			EnemyCharacter e = enemy.GetComponent<EnemyCharacter>( );
 
@@ -67,8 +84,9 @@ public class PlayerCharacter : BaseCharacter {
 
 			float direction = Vector3.Dot(transform.forward, dir);
 
-			if ( direction > 0 && distance < m_attribute.attackDistance ) {
+			if ( direction > 0 && distance < attribute.attackDistance ) {
 				e.BeAttacked( );
+				//if ( !isShaking ) StartCoroutine(Shake(0.1f));
 			} else {
 				//e.BeAttacked(false);
 			}
@@ -90,4 +108,15 @@ public class PlayerCharacter : BaseCharacter {
 
 		base.UpdateAnimator(move);
 	}
+
+	public void BeAttacked( ) {
+		this.UpdateAnimator("Damaged");
+		
+
+	}
+
+	public void Shake( ) {
+		cameraShake.ShakeCamera(1f, 0.01f);
+	}
+
 }
