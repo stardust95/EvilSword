@@ -31,7 +31,7 @@ public class PlayerCharacter : BaseCharacter {
 	public new void Start( ) {
 		base.Start( );
 		GetComponentInChildren<TrailRenderer>( ).enabled = false;
-		cameraShake = GameObject.FindGameObjectWithTag("MyMainCamera").GetComponent<CameraShake>( );
+		cameraShake = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraShake>( );
 		attribute = GetComponent<Attribute>( );
 
 	}

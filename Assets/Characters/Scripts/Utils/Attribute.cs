@@ -31,12 +31,12 @@ public class Attribute : MonoBehaviour {
 	// Use this for initialization
 	void Start( ) {
 
-		HP = 100;
-		MP = 100;
-		attack = 10.0f;
-		defence = 10.0f;
-		attackDistance = 1.0f;
-		skillDistance = 7.0f;
+		//HP = 100;
+		//MP = 100;
+		//attack = 10.0f;
+		//defence = 10.0f;
+		//attackDistance = 1.0f;
+		//skillDistance = 7.0f;
 		isDeath = false;
 
 		effectContainer = GameObject.FindGameObjectWithTag("EffectContainer");
@@ -61,14 +61,16 @@ public class Attribute : MonoBehaviour {
 
 	public void TakeDamage( string str, bool isCritical = false ) {
 
-		if ( isDeath )
-			return;
-
 		GameObject text = Instantiate(damageTextObject, this.transform.position + new Vector3(0, 1, 0), Quaternion.identity) as GameObject;
 		text.GetComponent<TextMesh>( ).text = str;
+
+		text.transform.LookAt(GameObject.FindGameObjectWithTag("MainCamera").gameObject.transform);
+		text.transform.Rotate(new Vector3(0, 1, 0), 180);
+
 		if ( isCritical ) {
 			text.GetComponent<TextMesh>( ).color = Color.red;
 		}
+		
 		damageTexts.Add(text);
 		Destroy(text, 2f);           // last only 2 seconds
 
