@@ -16,7 +16,7 @@ public class PlayerCharacter : BaseCharacter {
 
 	private bool isAttacking = false;
 
-	private Attribute attribute;
+	private CharacterAttribute attribute;
 
 	public bool IsAttacking
 	{
@@ -35,7 +35,7 @@ public class PlayerCharacter : BaseCharacter {
 		base.Start( );
 		GetComponentInChildren<TrailRenderer>( ).enabled = false;
 		cameraShake = GameObject.FindGameObjectWithTag("MyMainCamera").GetComponent<CameraShake>( );
-		attribute = GetComponent<Attribute>( );
+		attribute = GetComponent<CharacterAttribute>( );
 		skillCool = new float[Skills.Length];
 	}
 

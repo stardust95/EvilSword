@@ -20,7 +20,7 @@ public class EnemyCharacter : MonoBehaviour {
 
 	//private GameObject mainCamera;
 
-	private Attribute attribute;
+	private CharacterAttribute attribute;
 
 	private bool isFoundPlayer;
 	private bool isAttacking;
@@ -40,7 +40,7 @@ public class EnemyCharacter : MonoBehaviour {
 		player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerCharacter>();
 		player.allEnemies.Add(this.gameObject);
 		attackTimer = AttackInterval;
-		attribute = GetComponent<Attribute>( );
+		attribute = GetComponent<CharacterAttribute>( );
 		navAgent = GetComponent<NavMeshAgent>( );
 		mobPoints = GameObject.FindGameObjectsWithTag("MobPoint");
 		if ( mobPoints.Length > 0 ) {
